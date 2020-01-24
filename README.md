@@ -7,3 +7,4 @@ Repositorio para los ejercicios de la asignatura Cloud Computing, perteneciente 
 * [Desarrollo basado en pruebas](desarrollo_basado_en_pruebas.md)
 * [Microservicios](microservicios.md)
 * [Usando contenedores](usando_contenedores.md)
+* [Gestión de configuraciones](gestion_de_configuraciones.md)
