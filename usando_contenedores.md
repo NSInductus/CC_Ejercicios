@@ -184,20 +184,58 @@ El tamaño de cada uno de los contenedors, extraído con el comando anterior se 
 
 Cada una de estos Dockerfile, se encuentran en los archivos [Dockerfile1](Dockerfile1), [Dockerfile2](Dockerfile2) y [Dockerfile3](Dockerfile3), respectivamente.
 
+*Destacar que se ha utilizado siempre el nombre de Dockerfile durante la construcción y posteriormente se han metido a diferentes ficheros.*
 
 # Ejercicio 3
 
 **Crear a partir del contenedor anterior una imagen persistente con commit.**
 
-Rellenar ejercicio 3
+Para esto se utilizará la imagen de MongoDB utilizada en el ejercicio 1. Para esto lanzamos el contenedor con el siguiente comando:
+
+```shell
+$ sudo docker run ID_imagen
+```
+Después comprobamos cual es el ID_contenedor recien lanzado con el comando:
+
+```shell
+$ sudo docker ps -l
+```
+
+Una vez tengamos el ID_contenedor, realizamos el siguiente comando:
+
+```shell
+$ sudo docker commit ID_contenedor nombre_imagen_persistente
+```
+
+Para comprobar que hemos tenido exito listamos las imágenes y obtenemos el resultado que se vé a continuación:
+
+```
+REPOSITORY               TAG                 IMAGE ID            CREATED             SIZE
+imagen_persistente       latest              7c0487f460f5        14 seconds ago      364MB
+imagen_programa_ubuntu   latest              cad3de95ce6c        27 minutes ago      127MB
+imagen_programa_debian   latest              b9cbaab222fe        30 minutes ago      100MB
+imagen_programa_python   latest              51f85e444a74        39 minutes ago      918MB
+python                   3.7                 de787d71ba24        40 hours ago        918MB
+bitnami/minideb          latest              d830da6b8dc0        5 days ago          67.5MB
+mongo                    latest              105a8b77784b        8 days ago          364MB
+``````
+
+Como se demuestra se ha creado la imagen persistente, el uso que puede tener esto es salvar un contenedor que se esta ejecutando en la máquina, porque esta acción resulte de utilidad al usuario.
 
 # Ejercicio 4
 
 **Examinar la estructura de capas que se forma al crear imágenes nuevas a partir de contenedores que se hayan estado ejecutando.**
 
 
-Rellenar ejercicio 4
+La estructura es simple, en primer lugar tenemos la primera capa que la forma la primera imagen, es decir, la imagen base, esta se forma con el siguiente código:
 
+
+```dockerfile
+FROM imagen_base:latest
+
+```
+
+Y sobre esa tenemos otra capa que hace los cambios que quiera realizar en la imagen por ejemplo la instalación de librerías o la ejecución de cualquier orden.
 
 # Ejercicio 5
 
