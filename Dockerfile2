@@ -1,0 +1,4 @@
+FROM bitnami/minideb:latest
+RUN install_packages python3
+COPY programa.py programa.py
+CMD ["python3", "programa.py"]
