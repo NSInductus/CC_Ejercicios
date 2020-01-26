@@ -3,8 +3,38 @@
 **Buscar alguna demo interesante de Docker y ejecutarla localmente, o en su defecto, ejecutar la imagen anterior y ver cómo funciona y los procesos que se llevan a cabo la primera vez que se ejecuta y las siguientes ocasiones.**
 
 
-Rellenar ejercicio 1
+El programa será creado en *Python*, el fichero correspondiente a este es [programa.py](), su contenido es el siguiente:
 
+```python
+suma = 3 + 3
+print(suma)
+
+```
+
+El Dockerfile que creamos será muy sencillo:
+
+```dockerfile
+FROM python:3.7
+COPY programa.py programa.py
+CMD ["python", "programa.py"]
+
+```
+
+
+Se ejecutará con el siguiente comando:
+
+```shell
+docker build -t python:3.7 -f Dockerfile1
+
+```
+
+Los resultados son los siguiente:
+
+
+```
+
+
+```
 
 # Ejercicio 2
 
